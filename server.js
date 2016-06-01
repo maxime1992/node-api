@@ -1,6 +1,8 @@
 // ---------------------------------
 // ----------- IMPORTS -------------
 // ---------------------------------
+// import the config
+import conf from './config';
 
 // import and create express server
 import express from 'express';
@@ -72,5 +74,5 @@ app.all('*', (req, res) => {
 // ------------ LISTEN -------------
 // ---------------------------------
 
-server.listen(9090, '127.0.0.1');
-console.log('9090 is the magic port');
+server.listen(conf.PORT, conf.IP);
+console.log(`Server started on port ${conf.PORT}`);
