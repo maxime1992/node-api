@@ -16,6 +16,9 @@ const server = http.createServer(app);
 import socketIo from 'socket.io';
 const io = socketIo.listen(server);
 
+// control CORS
+import cors from 'cors';
+
 // use morgan to log
 import morgan from 'morgan';
 
@@ -30,6 +33,11 @@ import compress from 'compression';
 // ---------------------------------
 // ---------- MIDDLEWARES ----------
 // ---------------------------------
+
+// enable CORS on every route if required
+if (conf.CORS) {
+	app.use(cors());
+}
 
 // use GZIP
 app.use(compress());
