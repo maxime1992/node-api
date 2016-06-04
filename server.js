@@ -16,6 +16,9 @@ const server = http.createServer(app);
 import socketIo from 'socket.io';
 const io = socketIo.listen(server);
 
+// import mongoose to store data
+import mongoose from 'mongoose';
+
 // control CORS
 import cors from 'cors';
 
@@ -27,6 +30,14 @@ import bodyParser from 'body-parser';
 
 // compress to serve content gzipped if possible
 import compress from 'compression';
+
+// --------------------------------------------------------
+
+// ---------------------------------
+// ----------- DATABASE ------------
+// ---------------------------------
+
+mongoose.connect('mongodb://localhost/databasetest1');
 
 // --------------------------------------------------------
 
