@@ -19,6 +19,7 @@ export default (app, express) => {
 			const users = User.find({}, (err, users) => {
 				if (err) throw err;
 
+				res.status(200);
 				res.json({users});
 			});
 		});
