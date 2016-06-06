@@ -5,7 +5,11 @@ const config = {
 	ENV: process.env.NODE_ENV,
 	PORT: process.env.PORT,
 	IP: '127.0.0.1',
-	CORS: true
+	// allow calling the API from another server ?
+	CORS: true,
+	// how long a token is valid ? (string or int in seconds)
+	tokenTimeout: '3 days',
+	tokenSecretKey: 'secretKey'
 };
 
 export default config;

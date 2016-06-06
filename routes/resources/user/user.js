@@ -1,3 +1,6 @@
+// import the config
+import conf from '../../../config';
+
 // import models of the app
 import User from './user.model';
 
@@ -18,20 +21,6 @@ export default (app, express) => {
 
 				res.json({users});
 			});
-		});
-
-	userRoutes.route('/signIn')
-		.get((req, res) => {
-			// TODO : IF PWD + nickname matches ...
-			const token = jwt.sign({expiresIn: '3 days'}, 'secretKey');
-
-			User.findOneAndUpdate({'name.nick': 'maxime1992'}, {accessToken: token}, (err, user) => {
-				if (err) throw err;
-
-				console.log(user);
-				res.json({token});
-			});
-
 		});
 
 	return userRoutes;
