@@ -7,8 +7,11 @@
     "compression": "1.4.3",
     "cors": "2.7.1",
     "express": "4.13.4",
+    "jsonwebtoken": "7.0.0",
     "mongoose": "4.4.19",
     "morgan": "1.5.2",
+    "passport": "0.3.2",
+    "passport-http-bearer": "1.0.1",
     "socket.io": "1.4.6"
   },
   "devDependencies": {

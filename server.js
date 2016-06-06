@@ -19,6 +19,14 @@ const io = socketIo.listen(server);
 // import mongoose to store data
 import mongoose from 'mongoose';
 
+// import passport to manage login
+import passport from 'passport';
+
+// the bearer strategy is auth by token
+// (no session, no crlf, etc ...)
+// NEEDS SSL !!!
+import BearerStrategy from 'passport-http-bearer';
+
 // control CORS
 import cors from 'cors';
 
@@ -38,6 +46,35 @@ import compress from 'compression';
 // ---------------------------------
 
 mongoose.connect('mongodb://localhost/databasetest1');
+
+// --------------------------------------------------------
+
+// ---------------------------------
+// -------------- ÂUTH -------------
+// ---------------------------------
+
+// import models of the app
+import User from './routes/resources/user/user.model';
+
+passport.use(
+	new BearerStrategy(
+		(token, done) => {
+			User.findOne({accessToken: token},
+				(err, user) => {
+					if (err) {
+						return done(err);
+					}
+
+					if (!user) {
+						return done(null, false);
+					}
+
+					return done(null, user, {scope: 'all'});
+				}
+			);
+		}
+	)
+);
 
 // --------------------------------------------------------
 
@@ -66,10 +103,16 @@ app.use(bodyParser.urlencoded({extended: true}));
 // -------- DECLARE ROUTES ---------
 // ---------------------------------
 
-import apiRoutesImport from './routes/api.js';
+import apiRoutesImport from './routes/api';
 const apiRoutes = apiRoutesImport(app, express);
 
-import socketRoutes from './routes/socket.js';
+import authRoutesImport from './routes/auth';
+const authRoutes = authRoutesImport(app, express);
+
+import userRoutesImport from './routes/resources/user/user';
+const userRoutes = userRoutesImport(app, express);
+
+import socketRoutes from './routes/socket';
 
 // --------------------------------------------------------
 
@@ -77,7 +120,18 @@ import socketRoutes from './routes/socket.js';
 // ---------- USE ROUTES -----------
 // ---------------------------------
 
+// basic API info
 app.use('/api', apiRoutes);
+
+// auth to get a token
+app.use('/api/auth', authRoutes);
+
+// following routes are protected (connection required)
+// following routes will have access to req.user
+// which contains the current user
+app.use(passport.authenticate('bearer', {session: false}));
+
+app.use('/api/users', userRoutes);
 
 // socket.io communication
 io.sockets.on('connection', socketRoutes);
