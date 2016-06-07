@@ -36,6 +36,9 @@ import morgan from 'morgan';
 // bodyparser to parse forms
 import bodyParser from 'body-parser';
 
+// express validator allows us the control the data
+import validator from 'express-validator';
+
 // compress to serve content gzipped if possible
 import compress from 'compression';
 
@@ -96,6 +99,7 @@ app.use(morgan('dev'));
 // get informations from html forms
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
+app.use(validator());
 
 // --------------------------------------------------------
 

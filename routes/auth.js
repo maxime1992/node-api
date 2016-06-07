@@ -7,11 +7,55 @@ import passport from 'passport';
 // use jsonwebtoken to create token
 import jwt from 'jsonwebtoken';
 
+// express validator allows us the control the data
+import validator from 'express-validator';
+import jsdom from 'jsdom';
+import createDompurify from 'dompurify';
+const window = jsdom.jsdom('', {
+	features: {
+		// disables resource loading over HTTP / filesystem
+		FetchExternalResources: false,
+		// do not execute JS within script blocks
+		ProcessExternalResources: false
+	}
+}).defaultView;
+const dompurify = createDompurify(window);
+
+import util from 'util';
+
 export default (app, express) => {
 	const authRoutes = express.Router();
 
 	authRoutes.route('/signUp')
 		.post((req, res) => {
+			// avoid xss
+			req.body.email = dompurify.sanitize(req.body.email);
+			req.body.password = dompurify.sanitize(req.body.password);
+			req.body.firstName = dompurify.sanitize(req.body.firstName);
+			req.body.lastName = dompurify.sanitize(req.body.lastName);
+			req.body.nickName = dompurify.sanitize(req.body.nickName);
+
+			// sanitize
+			req.sanitizeBody('email').trim();
+			req.sanitizeBody('password').trim();
+			req.sanitizeBody('firstName').trim();
+			req.sanitizeBody('lastName').trim();
+			req.sanitizeBody('nickName').trim();
+
+			// check
+			req.checkBody('email', 'Invalid email').isLength({min: 4, max: 100}).isEmail();
+			req.checkBody('password', 'Invalid password').isLength({min: 6, max: 100});
+			req.checkBody('firstName', 'Invalid firstName').isLength({min: 2, max: 50});
+			req.checkBody('lastName', 'Invalid lastName').isLength({min: 2, max: 50});
+			req.checkBody('nickName', 'Invalid nickName').isLength({min: 2, max: 50});
+
+			const errors = req.validationErrors();
+
+			if (errors) {
+				res.status(400).send('There have been validation errors: ' + util.inspect(errors));
+				return;
+			}
+
 			// generate a token
 			const token = jwt.sign({expiresIn: '3 days'}, 'secretKey');
 
