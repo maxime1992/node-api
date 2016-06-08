@@ -57,7 +57,7 @@ mongoose.connect('mongodb://localhost/databasetest1');
 // ---------------------------------
 
 // import models of the app
-import User from './routes/resources/user/user.model';
+import {User} from './routes/resources/user/user.model';
 
 passport.use(
 	new BearerStrategy(

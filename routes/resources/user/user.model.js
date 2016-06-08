@@ -4,6 +4,12 @@ import mongoose from 'mongoose';
 // use brypt to hash passwords
 import bcrypt from 'bcrypt-nodejs';
 
+// --------------------------------------------------------
+
+// ---------------------------------
+// ------------- SCHEMA ------------
+// ---------------------------------
+
 // get the mongoose schema
 const Schema = mongoose.Schema;
 
@@ -35,4 +41,16 @@ userSchema.methods.validPassword = function(password) {
 // create the model from the schema
 const User = mongoose.model('User', userSchema);
 
-export default User;
+export {User};
+
+// --------------------------------------------------------
+
+// ---------------------------------
+// ------------- CHECK -------------
+// ---------------------------------
+
+export const USER_EMAIL_LENGTH     = {min: 4, max: 100};
+export const USER_PASSWORD_LENGTH  = {min: 6, max: 100};
+export const USER_FIRSTNAME_LENGTH = {min: 2, max: 50};
+export const USER_LASTNAME_LENGTH  = {min: 2, max: 50};
+export const USER_NICKNAME_LENGTH  = {min: 2, max: 50};

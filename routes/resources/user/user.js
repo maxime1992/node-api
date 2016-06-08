@@ -2,7 +2,7 @@
 import conf from '../../../config';
 
 // import models of the app
-import User from './user.model';
+import {User} from './user.model';
 
 // import passport to manage login
 import passport from 'passport';

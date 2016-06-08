@@ -1,5 +1,12 @@
 // import models of the app
-import User from './resources/user/user.model';
+import {
+	User,
+	USER_EMAIL_LENGTH,
+	USER_PASSWORD_LENGTH,
+	USER_FIRSTNAME_LENGTH,
+	USER_LASTNAME_LENGTH,
+	USER_NICKNAME_LENGTH
+} from './resources/user/user.model';
 
 // import passport to manage login
 import passport from 'passport';
@@ -90,6 +97,18 @@ export default (app, express) => {
 	authRoutes.route('/logIn')
 		.get((req, res) => {
 			User.findOne({email: req.query.email}, (err, user) => {
+				// avoid xss
+				req.body.email = dompurify.sanitize(req.body.email);
+				req.body.password = dompurify.sanitize(req.body.password);
+
+				// sanitize
+				req.sanitizeBody('email').trim();
+				req.sanitizeBody('password').trim();
+
+				// check
+				req.checkBody('email', 'Invalid email').isLength({min: 4, max: 100}).isEmail();
+				req.checkBody('password', 'Invalid password').isLength({min: 6, max: 100});
+
 				if (err) throw err;
 
 				// user does not exists
