@@ -4,13 +4,29 @@
 // import the config
 import conf from './config';
 
+const fs = require('fs');
+
+// import spdy to support h2 protocol
+const spdy = require('spdy');
+
 // import and create express server
 import express from 'express';
 const app = express();
 
+// --------------------------------------------------------
+
+// ---------------------------------
+// ------------- HTTPS -------------
+// ---------------------------------
+
+const options = {
+	key: fs.readFileSync(__dirname + '/keys/server.key'),
+	cert:  fs.readFileSync(__dirname + '/keys/server.crt')
+};
+
+// --------------------------------------------------------
 // use http to create the express app ...
-import http from 'http';
-const server = http.createServer(app);
+const server = spdy.createServer(options, app);
 
 // ... so we can pass the server to io
 import socketIo from 'socket.io';
