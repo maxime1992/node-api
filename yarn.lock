@@ -121,7 +121,7 @@ babel-code-frame@^6.20.0:
     esutils "^2.0.2"
     js-tokens "^2.0.0"
 
-babel-core@^6.18.0, babel-core@^6.21.0:
+babel-core@6.21.0, babel-core@^6.18.0:
   version "6.21.0"
   resolved "https://registry.yarnpkg.com/babel-core/-/babel-core-6.21.0.tgz#75525480c21c803f826ef3867d22c19f080a3724"
   dependencies:
@@ -426,7 +426,7 @@ babel-plugin-transform-strict-mode@^6.18.0:
     babel-runtime "^6.0.0"
     babel-types "^6.18.0"
 
-babel-preset-es2015@^6.18.0:
+babel-preset-es2015@6.18.0:
   version "6.18.0"
   resolved "https://registry.yarnpkg.com/babel-preset-es2015/-/babel-preset-es2015-6.18.0.tgz#b8c70df84ec948c43dcf2bf770e988eb7da88312"
   dependencies:
@@ -563,7 +563,7 @@ bluebird@^3.4.0:
   version "3.4.7"
   resolved "https://registry.yarnpkg.com/bluebird/-/bluebird-3.4.7.tgz#f72d760be09b7f76d08ed8fae98b289a8d05fab3"
 
-body-parser@^1.16.0:
+body-parser@1.16.0:
   version "1.16.0"
   resolved "https://registry.yarnpkg.com/body-parser/-/body-parser-1.16.0.tgz#924a5e472c6229fb9d69b85a20d5f2532dec788b"
   dependencies:
@@ -663,7 +663,7 @@ compressible@~2.0.8:
   dependencies:
     mime-db ">= 1.24.0 < 2"
 
-compression@^1.6.2:
+compression@1.6.2:
   version "1.6.2"
   resolved "https://registry.yarnpkg.com/compression/-/compression-1.6.2.tgz#cceb121ecc9d09c52d7ad0c3350ea93ddd402bc3"
   dependencies:
@@ -710,7 +710,7 @@ core-util-is@~1.0.0:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/core-util-is/-/core-util-is-1.0.2.tgz#b5fd54220aa2bc5ab57aab7140c940754503c1a7"
 
-cors@^2.8.1:
+cors@2.8.1:
   version "2.8.1"
   resolved "https://registry.yarnpkg.com/cors/-/cors-2.8.1.tgz#6181aa56abb45a2825be3304703747ae4e9d2383"
   dependencies:
@@ -738,7 +738,7 @@ dashdash@^1.12.0:
   dependencies:
     assert-plus "^1.0.0"
 
-debug@2.2.0, debug@^2.1.1, debug@^2.2.0, debug@~2.2.0:
+debug@2.2.0, debug@^2.2.0, debug@~2.2.0:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/debug/-/debug-2.2.0.tgz#f87057e995b1a1f6ae6a4960664137bc56f039da"
   dependencies:
@@ -750,7 +750,7 @@ debug@2.3.3:
   dependencies:
     ms "0.7.2"
 
-debug@2.6.0:
+debug@2.6.0, debug@^2.1.1:
   version "2.6.0"
   resolved "https://registry.yarnpkg.com/debug/-/debug-2.6.0.tgz#bc596bcabe7617f11d9fa15361eded5608b8499b"
   dependencies:
@@ -778,7 +778,7 @@ detect-indent@^4.0.0:
   dependencies:
     repeating "^2.0.0"
 
-dompurify@^0.8.4:
+dompurify@0.8.4:
   version "0.8.4"
   resolved "https://registry.yarnpkg.com/dompurify/-/dompurify-0.8.4.tgz#93cabe8b6b84f3cf83f63b985ff71ef05f8cdeb6"
 
@@ -881,7 +881,7 @@ etag@~1.7.0:
   version "1.7.0"
   resolved "https://registry.yarnpkg.com/etag/-/etag-1.7.0.tgz#03d30b5f67dd6e632d2945d30d6652731a34d5d8"
 
-express-validator@^3.1.2:
+express-validator@3.1.2:
   version "3.1.2"
   resolved "https://registry.yarnpkg.com/express-validator/-/express-validator-3.1.2.tgz#bae23dfa11191398d5fcada3dd7c54f28428195a"
   dependencies:
@@ -891,7 +891,7 @@ express-validator@^3.1.2:
     lodash "^4.16.0"
     validator "~6.2.0"
 
-express@^4.14.0:
+express@4.14.0:
   version "4.14.0"
   resolved "https://registry.yarnpkg.com/express/-/express-4.14.0.tgz#c1ee3f42cdc891fb3dc650a8922d51ec847d0d66"
   dependencies:
@@ -1168,7 +1168,7 @@ jsbn@~0.1.0:
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/jsbn/-/jsbn-0.1.0.tgz#650987da0dd74f4ebf5a11377a2aa2d273e97dfd"
 
-jsdom@^9.9.1:
+jsdom@9.9.1:
   version "9.9.1"
   resolved "https://registry.yarnpkg.com/jsdom/-/jsdom-9.9.1.tgz#84f3972ad394ab963233af8725211bce4d01bfd5"
   dependencies:
@@ -1221,7 +1221,7 @@ jsonpointer@^4.0.0:
   version "4.0.1"
   resolved "https://registry.yarnpkg.com/jsonpointer/-/jsonpointer-4.0.1.tgz#4fd92cb34e0e9db3c89c8622ecf51f9b978c6cb9"
 
-jsonwebtoken@^7.2.1:
+jsonwebtoken@7.2.1:
   version "7.2.1"
   resolved "https://registry.yarnpkg.com/jsonwebtoken/-/jsonwebtoken-7.2.1.tgz#0fc7217473fc02b4c9aa1e188aa70b51bba4fccb"
   dependencies:
@@ -1350,7 +1350,7 @@ mongodb@2.2.21:
     mongodb-core "2.1.6"
     readable-stream "2.1.5"
 
-mongoose@^4.7.7:
+mongoose@4.7.7:
   version "4.7.7"
   resolved "https://registry.yarnpkg.com/mongoose/-/mongoose-4.7.7.tgz#45118baa56c0595c924e52288d23559f98a741de"
   dependencies:
@@ -1367,7 +1367,7 @@ mongoose@^4.7.7:
     regexp-clone "0.0.1"
     sliced "1.0.1"
 
-morgan@^1.7.0:
+morgan@1.7.0:
   version "1.7.0"
   resolved "https://registry.yarnpkg.com/morgan/-/morgan-1.7.0.tgz#eb10ca8e50d1abe0f8d3dad5c0201d052d981c62"
   dependencies:
@@ -1394,11 +1394,11 @@ mquery@2.0.0:
     regexp-clone "0.0.1"
     sliced "0.0.5"
 
-ms@0.7.1, ms@^0.7.1:
+ms@0.7.1:
   version "0.7.1"
   resolved "https://registry.yarnpkg.com/ms/-/ms-0.7.1.tgz#9cd13c03adbff25b65effde7ce864ee952017098"
 
-ms@0.7.2:
+ms@0.7.2, ms@^0.7.1:
   version "0.7.2"
   resolved "https://registry.yarnpkg.com/ms/-/ms-0.7.2.tgz#ae25cf2512b3885a1d95d7f037868d8431124765"
 
@@ -1780,7 +1780,7 @@ socket.io-parser@2.3.1:
     isarray "0.0.1"
     json3 "3.3.2"
 
-socket.io@^1.7.2:
+socket.io@1.7.2:
   version "1.7.2"
   resolved "https://registry.yarnpkg.com/socket.io/-/socket.io-1.7.2.tgz#83bbbdf2e79263b378900da403e7843e05dc3b71"
   dependencies:
@@ -1818,7 +1818,7 @@ spdy-transport@^2.0.15:
     readable-stream "^2.0.1"
     wbuf "^1.4.0"
 
-spdy@^3.4.4:
+spdy@3.4.4:
   version "3.4.4"
   resolved "https://registry.yarnpkg.com/spdy/-/spdy-3.4.4.tgz#e0406407ca90ff01b553eb013505442649f5a819"
   dependencies:
@@ -1938,11 +1938,7 @@ validator@~6.2.0:
   version "6.2.1"
   resolved "https://registry.yarnpkg.com/validator/-/validator-6.2.1.tgz#bc575b78d15beb2e338a665ba9530c7f409ef667"
 
-vary@^1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/vary/-/vary-1.0.1.tgz#99e4981566a286118dfb2b817357df7993376d10"
-
-vary@~1.1.0:
+vary@^1, vary@~1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/vary/-/vary-1.1.0.tgz#e1e5affbbd16ae768dd2674394b9ad3022653140"
 
